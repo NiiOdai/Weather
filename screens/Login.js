@@ -34,13 +34,14 @@ export default function Login({navigation}) {
   }
 
   const weatherImage = [
-    { weather: "overcast clouds", img: require("../assets/cloudy-day.png") },
-    { weather: "broken clouds", img: require("../assets/adaptive-icon.png") },
-    { weather: "few clouds", img: require("../assets/adaptive-icon.png") },
-    { weather: "clear sky", img: require("../assets/adaptive-icon.png") },
+    { weather: "overcast clouds", img: require("../assets/clouds.png") },
+    { weather: "broken clouds", img: require("../assets/cloudy.png") },
+    { weather: "few clouds", img: require("../assets/cloudy-day.png") },
+    { weather: "clear sky", img: require("../assets/cloudy-day.png") },
+    { weather: "thunderstorm with light rain", img: require("../assets/rains.png") },
   ];
   
-  const cities = ["Accra", "Kumasi", "London", "Florida", "Abidjan"];
+  const cities = ["Ternopil","Accra", "Abuja", "London", "Florida", "Abidjan","Lagos","Banjul","Beijing","San Francisco",];
 
   function FTC(temp) {
     return temp - 273.15;
