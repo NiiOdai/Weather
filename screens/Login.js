@@ -14,11 +14,12 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { useEffect } from "react";
 
-export default function Login(params) {
+export default function Login({navigation}) {
+
   const [weatherData, setWeatherData] = useState();
   StatusBar.setBarStyle("light-content");
 
-  async function getWeather(city = "London") {
+  async function getWeather(city = "Accra") {
     fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=01f601a8bd1b726d476c8deb27ef8d51`
     )
@@ -33,7 +34,7 @@ export default function Login(params) {
   }
 
   const weatherImage = [
-    { weather: "overcast clouds", img: require("../assets/adaptive-icon.png") },
+    { weather: "overcast clouds", img: require("../assets/cloudy-day.png") },
     { weather: "broken clouds", img: require("../assets/adaptive-icon.png") },
     { weather: "few clouds", img: require("../assets/adaptive-icon.png") },
     { weather: "clear sky", img: require("../assets/adaptive-icon.png") },
@@ -50,11 +51,28 @@ export default function Login(params) {
   }, []);
 
   return (
+    <View style={{
+      backgroundColor: "#19172b",
+      flex: 1,
+      // paddingTop: 55,
+      // paddingHorizontal: 20,
+    }}>
+    <TouchableOpacity 
+    onPress= {() =>{
+      navigation.navigate("Home")
+     }}>
+    <View style={{paddingTop:25,paddingLeft:25, flexDirection:'row'}}>
+      <AntDesign name="menufold" size={24} color="white" />
+      <Text style={{paddingLeft:100,color:'white',fontSize:15}}>Weather forecast</Text>
+      </View>
+      
+      </TouchableOpacity>
+
     <View
       style={{
-        backgroundColor: "#19172b",
+        // backgroundColor: "#19172b",
         flex: 1,
-        paddingTop: 55,
+        paddingTop: 30,
         paddingHorizontal: 20,
       }}
     >
@@ -154,6 +172,7 @@ export default function Login(params) {
           </TouchableOpacity>
         )}
       />
+    </View>
     </View>
   );
 }
